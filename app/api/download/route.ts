@@ -23,7 +23,7 @@ async function fetchToFile(raw:string,file:string){
       const declared=Number(res.headers.get('content-length')||0); if(declared>MAX()) throw new Error('Source file is too large.');
       let total=0; const out=createWriteStream(file); const reader=res.body.getReader();
       try{ while(true){ const {done,value}=await reader.read(); if(done) break; total+=value.byteLength; if(total>MAX()) throw new Error('Source file is too large.'); if(!out.write(Buffer.from(value))) await new Promise<void>((resolve,reject)=>{out.once('drain',resolve);out.once('error',reject);}); } }
-      finally{ out.end(); await new Promise<void>(resolve=>{out.once('close',resolve);out.once('error',resolve);}); await reader.cancel().catch(()=>{}); }
+      finally{ out.end(); await new Promise<void>((resolve,reject)=>{out.once('close',resolve);out.once('error',reject);}); await reader.cancel().catch(()=>{}); }
       return;
     } finally { clearTimeout(timer); }
   }
