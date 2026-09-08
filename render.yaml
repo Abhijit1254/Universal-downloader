@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: mediaflow-downloader
+    runtime: docker
+    plan: starter
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: MAX_SOURCE_BYTES
+        value: "524288000"
+      - key: MAX_OUTPUT_BYTES
+        value: "1073741824"
+      - key: FFMPEG_TIMEOUT_MS
+        value: "300000"
