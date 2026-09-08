@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # MediaFlow — production launch build
 
 A Next.js/React/TypeScript media converter for **direct public media URLs**. It supports MP3 and MP4 conversion through FFmpeg and does not permanently store source or output files.
@@ -29,3 +30,7 @@ The converter temporarily downloads a source to the container filesystem, conver
 The built-in rate limiter is per process. For multiple instances, use a shared Redis/Upstash limiter before scaling.
 
 Before monetization, add your Privacy Policy, Terms, copyright/DMCA/contact process and the ad network's required disclosures. Only provide downloads for content you own or are authorized to use.
+=======
+# Universal-downloader
+Download everything by a link URL 
+>>>>>>> d5ea8f404985b2e3814048a9e949a04d5381792c
